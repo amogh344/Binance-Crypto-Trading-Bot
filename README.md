@@ -59,20 +59,8 @@ BINANCE_API_SECRET=your_testnet_api_secret
 
 ## 🏃‍♂️ How to Run
 
-### Option A: Using Docker (Recommended)
 
-Run the bot in an isolated container environment.
-
-```bash
-# Build the image
-docker build -t binance-bot .
-
-# Run the container (passing your .env keys)
-docker run -it --env-file .env binance-bot
-
-```
-
-### Option B: Local Python
+###  Local Python
 
 Run the bot directly on your machine.
 
