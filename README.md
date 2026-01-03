@@ -1,10 +1,3 @@
-Perfect — below is a fully corrected, professional README.md written 100% in proper Markdown, with ALL steps included, clean headings, code blocks, and GitHub-ready formatting.
-
-👉 Delete your current README.md and paste this exactly as-is.
-
-⸻
-
-
 # 🤖 Binance Futures Trading Bot (Testnet)
 
 ![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
