@@ -1,81 +1,3 @@
-# import os
-# import sys
-# from dotenv import load_dotenv
-# from bot import FuturesBot
-# from rich.console import Console
-# from rich.table import Table
-# from rich.panel import Panel
-# from rich.prompt import Prompt
-
-# # Load environment variables
-# load_dotenv()
-# console = Console()
-
-# def main():
-#     api_key = os.getenv('BINANCE_API_KEY')
-#     api_secret = os.getenv('BINANCE_API_SECRET')
-
-#     if not api_key:
-#         console.print("[bold red]Error: API keys not found in .env file[/bold red]")
-#         return
-
-#     try:
-#         bot = FuturesBot(api_key, api_secret)
-#     except Exception:
-#         return
-
-#     symbol = "BTCUSDT"
-
-#     while True:
-#         # Clear screen for a cleaner look (optional)
-#         os.system('cls' if os.name == 'nt' else 'clear')
-        
-#         console.print(Panel(f"[bold cyan]Binance Futures Bot (Testnet)[/bold cyan] | Symbol: {symbol}"))
-        
-#         table = Table(show_header=True, header_style="bold magenta")
-#         table.add_column("Option")
-#         table.add_column("Action")
-#         table.add_row("1", "Check USDT Balance")
-#         table.add_row("2", "Place Market Order")
-#         table.add_row("3", "Place Limit Order")
-#         table.add_row("4", "Place Stop-Loss (Bonus)")
-#         table.add_row("5", "Exit")
-        
-#         console.print(table)
-        
-#         choice = Prompt.ask("Select an option", choices=["1", "2", "3", "4", "5"])
-
-#         if choice == '1':
-#             balance = bot.get_balance()
-#             console.print(f"[green]Balance:[/green] {balance} USDT")
-#             Prompt.ask("Press Enter to continue...")
-
-#         elif choice in ['2', '3', '4']:
-#             side = Prompt.ask("Side", choices=["BUY", "SELL"])
-#             qty = float(Prompt.ask("Quantity (e.g. 0.005)"))
-
-#             if choice == '2':
-#                 bot.place_order(symbol, side, 'MARKET', qty)
-#             elif choice == '3':
-#                 price = Prompt.ask("Limit Price")
-#                 bot.place_order(symbol, side, 'LIMIT', qty, price=price)
-#             elif choice == '4':
-#                 stop = Prompt.ask("Trigger Price")
-#                 bot.place_order(symbol, side, 'STOP_MARKET', qty, stop_price=stop)
-            
-#             console.print("[yellow]Check trading.log for details.[/yellow]")
-#             Prompt.ask("Press Enter to continue...")
-
-#         elif choice == '5':
-#             console.print("Exiting...")
-#             sys.exit()
-
-# if __name__ == "__main__":
-#     main()
-
-
-
-#====================================================================================
 import os
 import sys
 import time
@@ -88,11 +10,11 @@ from rich.prompt import Prompt, FloatPrompt
 from rich.align import Align
 from rich import box
 
-# Load environment
+
 load_dotenv()
 console = Console()
 
-# --- Helper Functions for UI ---
+
 def get_bot():
     """Initializes the bot with a loading spinner."""
     api_key = os.getenv('BINANCE_API_KEY')
@@ -105,34 +27,28 @@ def get_bot():
     with console.status("[bold green]Connecting to Binance Futures Testnet...", spinner="dots"):
         try:
             bot = FuturesBot(api_key, api_secret)
-            time.sleep(1) # Fake delay for visual effect
+            time.sleep(1) 
             return bot
         except Exception:
             console.print("[bold red]❌ Connection Failed. Check logs.[/bold red]")
             sys.exit()
 
 def display_dashboard(bot, symbol):
-    """Displays the main dashboard with Balance and Positions."""
     
-    # 1. Fetch Data with Spinner
     with console.status("[bold cyan]Fetching Account Data...", spinner="earth"):
         balance = bot.get_balance()
         position = bot.get_position(symbol)
     
-    # Clear screen for dashboard feel
     os.system('cls' if os.name == 'nt' else 'clear')
 
-    # 2. Header Panel
     console.print(Panel(Align.center(f"[bold gold1]⚡ BINANCE FUTURES CLI ⚡[/bold gold1]\n[grey53]Testnet Environment • {symbol}[/grey53]"), style="bold white"))
 
-    # 3. Account Overview Table
     table = Table(show_header=True, header_style="bold magenta", box=box.ROUNDED, expand=True)
     table.add_column("💰 Wallet Balance (USDT)", justify="center")
     table.add_column("Current Position", justify="center")
     table.add_column("Entry Price", justify="center")
     table.add_column("Unrealized PnL", justify="center")
 
-    # Format Position Data
     pos_str = "[grey50]FLAT[/grey50]"
     entry_str = "-"
     pnl_str = "-"
@@ -143,20 +59,17 @@ def display_dashboard(bot, symbol):
         entry_str = f"{position['entry_price']:.2f}"
         pnl_str = f"[{color}]{position['pnl']:.2f} USDT[/{color}]"
 
-    # Handle None balance safely
     bal_str = f"{balance:.2f}" if balance is not None else "Error"
     
     table.add_row(f"[bold green]{bal_str}[/bold green]", pos_str, entry_str, pnl_str)
     console.print(table)
-    console.print("") # Spacing
+    console.print("")
 
 def print_receipt(order):
-    """Prints a fancy receipt panel for orders."""
     if not order:
         console.print(Panel("[bold red]❌ Order Failed. Check trading.log for details.[/bold red]", title="Error"))
         return
 
-    # Extract Data safely
     oid = order.get('orderId', 'Unknown')
     if oid == 'Unknown': 
         oid = order.get('algoId', 'Unknown')
@@ -165,7 +78,6 @@ def print_receipt(order):
     side = order.get('side', 'Unknown')
     qty = order.get('quantity', order.get('origQty', '0'))
     
-    # Create Receipt Table
     grid = Table.grid(expand=True)
     grid.add_column()
     grid.add_column(justify="right")
@@ -176,7 +88,6 @@ def print_receipt(order):
 
     console.print(Panel(grid, title="[bold green]✅ Order Receipt[/bold green]", width=50))
 
-# --- Main Loop ---
 def main():
     bot = get_bot()
     symbol = "BTCUSDT"
@@ -184,7 +95,6 @@ def main():
     while True:
         display_dashboard(bot, symbol)
 
-        # Menu
         menu = Table(box=box.SIMPLE, show_header=False)
         menu.add_column("Cmd", style="cyan", no_wrap=True)
         menu.add_column("Action")
@@ -203,22 +113,22 @@ def main():
             sys.exit()
         
         elif choice == '5':
-            continue # Just loops back to refresh dashboard
+            continue 
 
-        # Action Logic
+
         if choice in ['1', '2', '3', '4']:
             side = ""
             if choice == '1': side = "BUY"
             if choice == '2': side = "SELL"
             
-            # If standard Market Order
+
             if choice in ['1', '2']:
                 qty = FloatPrompt.ask(f"Enter {side} Quantity")
                 with console.status("[bold yellow]Submitting Market Order..."):
                     order = bot.place_order(symbol, side, 'MARKET', qty)
                     print_receipt(order)
 
-            # Limit Order
+
             elif choice == '3':
                 side = Prompt.ask("Side", choices=["BUY", "SELL"])
                 qty = FloatPrompt.ask("Quantity")
@@ -227,9 +137,8 @@ def main():
                     order = bot.place_order(symbol, side, 'LIMIT', qty, price=price)
                     print_receipt(order)
             
-            # Stop Loss
             elif choice == '4':
-                side = "SELL" # Usually Stop Loss is sell
+                side = "SELL" 
                 qty = FloatPrompt.ask("Quantity")
                 stop = Prompt.ask("Trigger Price")
                 with console.status("[bold red]Submitting Stop Order..."):
