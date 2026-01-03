@@ -1,0 +1,32 @@
+2026-01-03 19:05:28,537 - INFO - Connected to Binance Futures Testnet.
+2026-01-03 19:05:34,925 - ERROR - Error fetching balance: APIError(code=-2015): Invalid API-key, IP, or permissions for action
+2026-01-03 19:12:15,824 - INFO - Connected to Binance Futures Testnet.
+2026-01-03 19:12:39,405 - INFO - Connected to Binance Futures Testnet.
+2026-01-03 19:13:40,191 - INFO - Connected to Binance Futures Testnet.
+2026-01-03 19:14:01,953 - INFO - Sending Order: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.005}
+2026-01-03 19:14:02,291 - INFO - Order Placed: 11361699573
+2026-01-03 19:14:41,108 - INFO - Sending Order: {'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': 0.001, 'price': '100000', 'timeInForce': 'GTC'}
+2026-01-03 19:14:41,441 - INFO - Order Placed: 11361707330
+2026-01-03 19:15:06,202 - INFO - Sending Order: {'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': 0.001, 'stopPrice': '20000'}
+2026-01-03 19:15:06,709 - ERROR - Order Failed: APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+2026-01-03 19:16:03,182 - INFO - Sending Order: {'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': 0.01, 'stopPrice': '90000'}
+2026-01-03 19:16:03,327 - ERROR - Order Failed: APIError(code=-2021): Order would immediately trigger.
+2026-01-03 19:17:01,783 - INFO - Sending Order: {'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': 0.01, 'stopPrice': '40000'}
+2026-01-03 19:17:02,193 - ERROR - Order Failed: 'orderId'
+2026-01-03 19:18:54,629 - INFO - Connected to Binance Futures Testnet.
+2026-01-03 19:19:14,235 - INFO - Sending Order: {'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': 0.01, 'stopPrice': '40000'}
+2026-01-03 19:19:14,597 - INFO - Binance Response: {'algoId': 1000000003784248, 'clientAlgoId': 'x-Cb7ytekJd7b15bec1037110a7a4331', 'algoType': 'CONDITIONAL', 'orderType': 'STOP_MARKET', 'symbol': 'BTCUSDT', 'side': 'SELL', 'positionSide': 'BOTH', 'timeInForce': 'GTC', 'quantity': '0.010', 'algoStatus': 'NEW', 'triggerPrice': '40000.00', 'price': '0.00', 'icebergQuantity': None, 'selfTradePreventionMode': 'EXPIRE_MAKER', 'workingType': 'CONTRACT_PRICE', 'priceMatch': 'NONE', 'closePosition': False, 'priceProtect': False, 'reduceOnly': False, 'createTime': 1767448154527, 'updateTime': 1767448154528, 'triggerTime': 0, 'goodTillDate': 0}
+2026-01-03 19:19:14,597 - INFO - Order Placed Successfully: ID Unknown ID - Status: Unknown Status
+2026-01-03 19:29:18,578 - INFO - Connected to Binance Futures Testnet.
+2026-01-03 19:30:10,122 - INFO - Sending Order: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.005}
+2026-01-03 19:30:10,535 - INFO - Binance Response: {'orderId': 11361935696, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ6c101437e96f3f30aca0ab', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.005', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1767448810412}
+2026-01-03 19:30:10,535 - INFO - Order Placed Successfully: ID 11361935696 - Status: NEW
+2026-01-03 19:31:54,719 - INFO - Sending Order: {'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'MARKET', 'quantity': 0.005}
+2026-01-03 19:31:55,126 - INFO - Binance Response: {'orderId': 11361962807, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJd20603e8200619ac317f96', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.005', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1767448915012}
+2026-01-03 19:31:55,126 - INFO - Order Placed Successfully: ID 11361962807 - Status: NEW
+2026-01-03 19:32:34,476 - INFO - Sending Order: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'LIMIT', 'quantity': 0.005, 'price': '30000', 'timeInForce': 'GTC'}
+2026-01-03 19:32:34,859 - INFO - Binance Response: {'orderId': 11361972613, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ4204821e83941180389b9c', 'price': '30000.00', 'avgPrice': '0.00', 'origQty': '0.005', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1767448954773}
+2026-01-03 19:32:34,860 - INFO - Order Placed Successfully: ID 11361972613 - Status: NEW
+2026-01-03 19:33:02,745 - INFO - Sending Order: {'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': 0.01, 'stopPrice': '20000'}
+2026-01-03 19:33:02,886 - INFO - Binance Response: {'algoId': 1000000003785900, 'clientAlgoId': 'x-Cb7ytekJb64c4875cbdf2961f16d97', 'algoType': 'CONDITIONAL', 'orderType': 'STOP_MARKET', 'symbol': 'BTCUSDT', 'side': 'SELL', 'positionSide': 'BOTH', 'timeInForce': 'GTC', 'quantity': '0.010', 'algoStatus': 'NEW', 'triggerPrice': '20000.00', 'price': '0.00', 'icebergQuantity': None, 'selfTradePreventionMode': 'EXPIRE_MAKER', 'workingType': 'CONTRACT_PRICE', 'priceMatch': 'NONE', 'closePosition': False, 'priceProtect': False, 'reduceOnly': False, 'createTime': 1767448982824, 'updateTime': 1767448982824, 'triggerTime': 0, 'goodTillDate': 0}
+2026-01-03 19:33:02,887 - INFO - Order Placed Successfully: ID 1000000003785900 - Status: NEW
