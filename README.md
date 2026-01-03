@@ -99,8 +99,8 @@ python main.py
 
 
 🖥️ Usage Overview
-```
 Once started, the CLI provides a menu-driven interface to:
+```
 	1.	Place Market Buy/Sell orders
 	2.	Place Limit Orders at custom prices
 	3.	Configure Stop-Loss (Stop-Market) orders
