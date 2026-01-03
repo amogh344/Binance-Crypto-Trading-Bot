@@ -2,7 +2,6 @@
 
 ![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
 ![Binance API](https://img.shields.io/badge/Binance-Futures_Testnet-yellow.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 A professional, modular crypto trading bot designed for the **Binance Futures Testnet (USDT-M)**.  
 This project demonstrates a production-ready backend architecture with CLI interaction, logging, and robust error handling.
