@@ -1,108 +1,123 @@
-This is the final touch that makes your project look like a professional software delivery rather than just a homework assignment.
+Here’s a clean, ready-to-paste README.md exactly as requested.
+You can copy everything below and paste it directly into your README.md file without changes.
 
-Copy and paste the code below into your `README.md` file.
+⸻
 
----
 
-```markdown
 # 🤖 Binance Futures Trading Bot (Testnet)
 
 ![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
 ![Binance API](https://img.shields.io/badge/Binance-Futures_Testnet-yellow.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-A professional, modular, and containerized crypto trading bot designed for the **Binance Futures Testnet (USDT-M)**.
-This project features a real-time CLI dashboard, position tracking, and robust error handling, demonstrating a production-ready architecture.
+A professional, modular, and containerized crypto trading bot designed for the **Binance Futures Testnet (USDT-M)**.  
+This project demonstrates a production-ready backend architecture with CLI interaction, logging, and robust error handling.
+
+---
 
 ## 🚀 Features
 
 ### Core Functionality
-- **Futures Trading:** Executed orders on the `USDT-M` derivatives market.
-- **Order Types:** Support for **Market**, **Limit**, and **Stop-Market** orders.
-- **Position Tracking:** Real-time monitoring of open positions (Entry Price, PnL, Side).
-- **Wallet Management:** Live balance updates for USDT.
+- **Futures Trading:** Places orders on the `USDT-M` Binance Futures Testnet
+- **Order Types:** Market, Limit, and Stop-Market orders
+- **Order Sides:** Buy and Sell supported
+- **Wallet Balance:** Fetch and display USDT balance
+- **Execution Feedback:** Outputs order status and execution details
 
-### Advanced Features (Bonus)
-- **Interactive Dashboard:** Built with `rich` to provide a terminal-based UI with live spinners and formatted tables.
-- **Stop-Loss Support:** Implemented conditional orders (`STOP_MARKET`) for risk management.
-- **Crash-Proof Logging:** Comprehensive audit logging in `trading.log` capturing every API request and response.
-- **Dockerized:** Fully containerized for easy deployment anywhere.
+### Advanced / Bonus Features
+- **Interactive CLI Dashboard:** Enhanced terminal UI using `rich`
+- **Stop-Loss Support:** Risk management via `STOP_MARKET` orders
+- **Comprehensive Logging:** All API requests, responses, and errors logged
+- **Dockerized Application:** Run anywhere with Docker support
 
 ---
 
 ## 🛠️ Installation & Setup
 
-You can run this bot locally or inside a Docker container.
+You can run this bot **locally** or using **Docker**.
 
 ### Prerequisites
-- Python 3.8+ or Docker.
-- A Binance Futures Testnet Account ([Register Here](https://testnet.binancefuture.com)).
+- Python 3.8+ **or** Docker
+- Binance Futures Testnet account  
+  👉 https://testnet.binancefuture.com
 
-### 1. Clone the Repository
+---
+
+## 1️⃣ Clone the Repository
+
 ```bash
-git clone [https://github.com/amogh344/Crypto-trading-bot.git](https://github.com/amogh344/Crypto-trading-bot.git)
+git clone https://github.com/amogh344/Crypto-trading-bot.git
 cd Crypto-trading-bot
 
-```
 
-### 2. Configure Credentials
+⸻
 
-Create a `.env` file in the root directory. **Do not share this file.**
+2️⃣ Configure API Credentials
 
-```ini
+Create a .env file in the project root (never commit this file):
+
 BINANCE_API_KEY=your_testnet_api_key
 BINANCE_API_SECRET=your_testnet_api_secret
 
-```
 
----
+⸻
 
-## 🏃‍♂️ How to Run
+🏃‍♂️ How to Run
+
+Option A: Using Docker (Recommended)
+
+# Build the Docker image
+docker build -t binance-futures-bot .
+
+# Run the container with environment variables
+docker run -it --env-file .env binance-futures-bot
 
 
-###  Local Python
+⸻
 
-Run the bot directly on your machine.
+Option B: Run Locally with Python
 
-```bash
-# 1. Create a virtual environment (Optional but recommended)
+# Create virtual environment (recommended)
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate    # Windows: venv\Scripts\activate
 
-# 2. Install dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-# 3. Launch the bot
+# Run the bot
 python main.py
 
-```
 
----
+⸻
 
-## 📂 Project Structure
+📂 Project Structure
 
-```plaintext
-├── bot.py             # Core Class: Handles API connectivity, Trading Logic, and Error Handling
-├── main.py            # Interface: Rich CLI Dashboard and User Input validation
-├── requirements.txt   # Dependencies: python-binance, rich, python-dotenv
-├── .env               # Secrets: API Keys (Not included in repo)
-└── trading.log        # Audit Trail: Logs of all transaction history
+├── bot.py             # Core trading logic and Binance Futures API wrapper
+├── main.py            # CLI interface and user input validation
+├── Dockerfile         # Docker configuration
+├── requirements.txt   # Python dependencies
+├── .env               # API credentials (excluded from git)
+└── trading.log        # Detailed API request/response logs
 
-```
 
-## 📸 Usage Example
+⸻
 
-Once running, the CLI provides a menu-driven interface:
+📸 Usage Overview
 
-1. **Market Buy/Sell:** Instant execution.
-2. **Limit Order:** Place passive orders at specific prices.
-3. **Stop Loss:** Set trigger prices to protect positions.
-4. **Dashboard:** View your Unrealized PnL and active trades in real-time.
+Once started, the CLI provides a menu-driven interface to:
+	1.	Place Market Buy/Sell orders
+	2.	Place Limit Orders at custom prices
+	3.	Configure Stop-Loss (Stop-Market) orders
+	4.	View wallet balance, open positions, and PnL
+	5.	Monitor execution status in real time
 
-## ⚠️ Disclaimer
+⸻
 
-This software is for educational purposes and is configured strictly for the **Binance Testnet**. Use at your own risk when adapting for real funds.
+⚠️ Disclaimer
 
-```
+This software is intended strictly for educational and evaluation purposes
+and operates only on the Binance Futures Testnet.
 
-```
+⚠️ Do NOT use this code with real funds without proper risk controls, audits, and safeguards.
+
+⸻
