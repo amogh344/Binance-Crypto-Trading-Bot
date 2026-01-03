@@ -84,7 +84,6 @@ python main.py
 ```plaintext
 ├── bot.py             # Core Class: Handles API connectivity, Trading Logic, and Error Handling
 ├── main.py            # Interface: Rich CLI Dashboard and User Input validation
-├── Dockerfile         # DevOps: Container configuration
 ├── requirements.txt   # Dependencies: python-binance, rich, python-dotenv
 ├── .env               # Secrets: API Keys (Not included in repo)
 └── trading.log        # Audit Trail: Logs of all transaction history
